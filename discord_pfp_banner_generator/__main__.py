@@ -59,5 +59,9 @@ def cli():
     pp = pp.crop((PP_X, PP_Y, PP_X+PP_WIDTH, PP_Y+PP_HEIGHT))
     pp.save("pp.png", "PNG")
 
+    # Close temporary file
+    if 'fp' in locals():
+        fp.close()
+
 if __name__ == "__main__":
     cli()
