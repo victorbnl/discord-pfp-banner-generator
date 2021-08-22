@@ -38,11 +38,11 @@ def cli():
 
     # Create the banner
     banner = banner.crop((0, 0, BANNER_WIDTH, BANNER_HEIGHT))
-    banner.save("test_banner.png", "PNG")
+    banner.save("banner.png", "PNG")
 
     # Create the pp
     pp = pp.crop((PP_X, PP_Y, PP_X+PP_WIDTH, PP_Y+PP_HEIGHT))
-    pp.save("test_pp.png", "PNG")
+    pp.save("pp.png", "PNG")
 
 if __name__ == "__main__":
     cli()
