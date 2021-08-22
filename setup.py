@@ -4,7 +4,7 @@
 from distutils.core import setup
 
 setup(
-    name='Distutils',
+    name='Discord pp banner generator',
     description='A script to generate a profile picture and a banner that show the same image on Discord',
     author='Victor B',
     author_email='victor.bonnelle@protonmail.com',
