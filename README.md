@@ -16,7 +16,7 @@ And make sure your python scripts directory is in your path (pip should warn you
 
 ## Usage
 
-<strong><img src="https://user-images.githubusercontent.com/39555268/130364433-8e2d0fda-2ec6-4233-b7f9-ab57fd50ad1d.png" height="42px" alt="⚠ Setting a banner requires nitro"></strong>
+<strong><img src=".readme/warning.svg" height="42px" alt="⚠ Setting a banner requires nitro"></strong>
 
 ### Cli
 
