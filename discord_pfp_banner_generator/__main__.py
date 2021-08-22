@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
+"""Discord profiles picture & banner generator cli"""
+
 import re
 import sys
 import tempfile
-from math import floor
-
 import requests
 from PIL import Image
-
-# Constants
-BANNER_WIDTH, BANNER_HEIGHT = 606, 242
-PFP_X, PFP_Y = 44, 164
-PFP_WIDTH, PFP_HEIGHT = 161, 161
+from .process import process
 
 def cli():
+    """Discord profiles picture & banner generator cli"""
+
     # If there are no args
     if len(sys.argv) < 2:
         print("Please specify an image")
@@ -25,38 +23,15 @@ def cli():
     if re.match(r'(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?', arg):
         fp = tempfile.TemporaryFile()
         fp.write(requests.get(arg).content)
-        im = Image.open(fp)
+        image = Image.open(fp)
     else:
-        im = Image.open(arg)
+        image = Image.open(arg)
+    
+    # Create the banner and the pp
+    banner, pfp = process(image)
 
-    # Resize the image
-    width, height = im.size
-    if width/height < 606/325:
-        new_width = 606
-        new_height = int(new_width*height/width)
-    elif width/height > 606/325:
-        new_height = 325
-        new_width = int(new_height*width/height)
-    im = im.resize((new_width, new_height), Image.ANTIALIAS)
-
-    # Crop the image in the center
-    width, height = im.size
-    new_width, new_height = BANNER_WIDTH, BANNER_HEIGHT+PFP_HEIGHT-76
-    left = floor((width - new_width)/2)
-    top = floor((height - new_height)/2)
-    right = floor((width + new_width)/2)
-    bottom = floor((height + new_height)/2)
-    im = im.crop((left, top, right, bottom))
-
-    # Create the banner and pp variables
-    banner, pfp = im.copy(), im.copy()
-
-    # Create the banner
-    banner = banner.crop((0, 0, BANNER_WIDTH, BANNER_HEIGHT))
+    # Save files
     banner.save("banner.png", "PNG")
-
-    # Create the pfp
-    pfp = pfp.crop((PFP_X, PFP_Y, PFP_X+PFP_WIDTH, PFP_Y+PFP_HEIGHT))
     pfp.save("pfp.png", "PNG")
 
     # Close temporary file
