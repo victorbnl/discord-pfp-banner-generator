@@ -18,8 +18,22 @@ And make sure your python scripts directory is in your path (pip should warn you
 
 ## Usage
 
+### Cli
+
 ```
 discord_pfp_banner_generator image.(png|jpg|anything)
 ```
 
 Both `banner.png` and `pp.png` are now written in the current directory!
+
+### Module
+
+```python
+import discord_pfp_banner_generator
+
+im = Image.load("image.(png|jpg|anything)")
+banner, pfp = discord_pfp_banner_generator.process(im)
+
+banner.save("banner.png", "PNG")
+pfp.save("pfp.png", "PNG")
+```
