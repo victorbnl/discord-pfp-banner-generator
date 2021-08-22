@@ -11,8 +11,8 @@ from PIL import Image
 
 # Constants
 BANNER_WIDTH, BANNER_HEIGHT = 606, 242
-PP_X, PP_Y = 44, 164
-PP_WIDTH, PP_HEIGHT = 161, 161
+PFP_X, PFP_Y = 44, 164
+PFP_WIDTH, PFP_HEIGHT = 161, 161
 
 def cli():
     # If there are no args
@@ -41,7 +41,7 @@ def cli():
 
     # Crop the image in the center
     width, height = im.size
-    new_width, new_height = BANNER_WIDTH, BANNER_HEIGHT+PP_HEIGHT-76
+    new_width, new_height = BANNER_WIDTH, BANNER_HEIGHT+PFP_HEIGHT-76
     left = floor((width - new_width)/2)
     top = floor((height - new_height)/2)
     right = floor((width + new_width)/2)
@@ -49,15 +49,15 @@ def cli():
     im = im.crop((left, top, right, bottom))
 
     # Create the banner and pp variables
-    banner, pp = im.copy(), im.copy()
+    banner, pfp = im.copy(), im.copy()
 
     # Create the banner
     banner = banner.crop((0, 0, BANNER_WIDTH, BANNER_HEIGHT))
     banner.save("banner.png", "PNG")
 
-    # Create the pp
-    pp = pp.crop((PP_X, PP_Y, PP_X+PP_WIDTH, PP_Y+PP_HEIGHT))
-    pp.save("pp.png", "PNG")
+    # Create the pfp
+    pfp = pfp.crop((PFP_X, PFP_Y, PFP_X+PFP_WIDTH, PFP_Y+PFP_HEIGHT))
+    pfp.save("pfp.png", "PNG")
 
     # Close temporary file
     if 'fp' in locals():
