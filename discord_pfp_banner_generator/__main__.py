@@ -38,7 +38,6 @@ def cli():
         new_height = 325
         new_width = int(new_height*width/height)
     im = im.resize((new_width, new_height), Image.ANTIALIAS)
-    im.save("test.png", "PNG")
 
     # Crop the image in the center
     width, height = im.size
