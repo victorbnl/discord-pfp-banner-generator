@@ -1,5 +1,7 @@
 # Discord profile picture & banner generator
 
+**Setting a banner requires nitro** so this script will be completely useless if you don't have it.
+
 A script to generate a profile picture and a banner that show the same image on Discord
 
 <p align="center">
