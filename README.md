@@ -9,7 +9,7 @@ A script to generate a profile picture and a banner that show the same image on 
 ## Installation
 
 ```
-pip install git+https://github.com/victorbnl/discord-pfp-banner-generator.git
+pip install --upgrade git+https://github.com/victorbnl/discord-pfp-banner-generator.git
 ```
 
 And make sure your python scripts directory is in your path (pip should warn you if it's not anyway).
