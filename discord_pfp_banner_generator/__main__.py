@@ -19,7 +19,7 @@ def cli():
     if len(sys.argv) < 2:
         print("Please specify an image")
         sys.exit()
-    
+
     # Load the image
     arg = sys.argv[1]
     if re.match(r'(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?', arg):
