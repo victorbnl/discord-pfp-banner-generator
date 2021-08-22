@@ -5,6 +5,9 @@
 from PIL import Image
 import sys
 from math import floor
+import re
+import requests
+import tempfile
 
 # Constants
 BANNER_WIDTH, BANNER_HEIGHT = 606, 242
@@ -12,21 +15,34 @@ PP_X, PP_Y = 44, 164
 PP_WIDTH, PP_HEIGHT = 161, 161
 
 def cli():
-    # Load the input image
-    im = Image.open(sys.argv[1])
-
-    # Check if it's landscape
-    width, height = im.size
-    if height > width:
-        print("Please use a landscape image")
+    # If there are no args
+    if len(sys.argv) < 2:
+        print("Please specify an image")
         sys.exit()
+    
+    # Load the image
+    arg = sys.argv[1]
+    if re.match(r'(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?', arg):
+        fp = tempfile.TemporaryFile()
+        fp.write(requests.get(arg).content)
+        im = Image.open(fp)
+    else:
+        im = Image.open(arg)
 
-    # Resize the image to 600px width
-    im.thumbnail((BANNER_WIDTH, BANNER_WIDTH), Image.ANTIALIAS)
+    # Resize the image
+    width, height = im.size
+    if width/height < 606/325:
+        new_width = 606
+        new_height = int(new_width*height/width)
+    elif width/height > 606/325:
+        new_height = 325
+        new_width = int(new_height*width/height)
+    im = im.resize((new_width, new_height), Image.ANTIALIAS)
+    im.save("test.png", "PNG")
 
     # Crop the image in the center
     width, height = im.size
-    new_width, new_height = width, BANNER_HEIGHT+PP_HEIGHT-76
+    new_width, new_height = BANNER_WIDTH, BANNER_HEIGHT+PP_HEIGHT-76
     left = floor((width - new_width)/2)
     top = floor((height - new_height)/2)
     right = floor((width + new_width)/2)
