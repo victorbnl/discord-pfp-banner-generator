@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
-# Imports
-from PIL import Image
-import sys
-from math import floor
 import re
-import requests
+import sys
 import tempfile
+from math import floor
+
+import requests
+from PIL import Image
 
 # Constants
 BANNER_WIDTH, BANNER_HEIGHT = 606, 242
