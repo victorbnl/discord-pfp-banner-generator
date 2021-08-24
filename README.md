@@ -30,7 +30,7 @@ Clone this repo, install the dependencies with `pip install -r requirements.txt`
 discord_pfp_banner_generator image.(png|jpg|anything)
 ```
 
-Both `banner.png` and `pp.png` are now written in the current directory!
+Both `banner.png` and `profile-picture.png` are now written in the current directory!
 
 ### Module
 
