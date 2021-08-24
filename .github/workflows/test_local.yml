@@ -1,4 +1,4 @@
-name: Tests
+name: Test with local picture
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  tests:
+  test_local:
     runs-on: ubuntu-latest
     steps:
 
@@ -25,8 +25,11 @@ jobs:
       - name: Install the module
         run: pip install .
 
-      - name: Run the script with a picture
-        run: discord_pfp_banner_generator "https://picsum.photos/seed/picsum/200/300"
+      - name: Download the picture
+        run: curl "https://i.imgur.com/0YFk7tF.png" -o image.png
+
+      - name: Run the script
+        run: discord_pfp_banner_generator image.png
 
       - name: Check if profile-picture.png exists
         run: test -f profile-picture.png && exit 0 || exit 1

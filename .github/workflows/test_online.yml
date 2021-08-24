@@ -1,0 +1,35 @@
+name: Test with online picture
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test_online:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Get repository files
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.x
+
+      - name: Install the module
+        run: pip install .
+
+      - name: Run the script
+        run: discord_pfp_banner_generator "https://i.imgur.com/0YFk7tF.png"
+
+      - name: Check if profile-picture.png exists
+        run: test -f profile-picture.png && exit 0 || exit 1
+
+      - name: Check if banner.png exists
+        run: test -f banner.png && exit 0 || exit 1
