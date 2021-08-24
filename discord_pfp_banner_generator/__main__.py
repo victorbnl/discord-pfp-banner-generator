@@ -35,7 +35,7 @@ def cli():
 
     # Save files
     banner.save("banner.png", "PNG")
-    pfp.save("pfp.png", "PNG")
+    pfp.save("profile-picture.png", "PNG")
 
     # Close temporary file
     if 'fp' in locals():
