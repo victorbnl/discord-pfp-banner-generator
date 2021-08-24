@@ -8,7 +8,7 @@ A script to generate a profile picture and a banner that show the same image on 
     <img src=".readme/screenshot.png">
 </p>
 
-## Installation
+## Installation / Update
 
 ### With pip *(recommended)*
 
@@ -20,7 +20,7 @@ And make sure your python scripts directory is in your path (pip should warn you
 
 ### Without pip
 
-Clone this repo, run the following commands in the repo directory, and replace the command `discord_pfp_banner_generator` of the usage section by `python3 discord_pfp_banner_generator`
+Clone this repo, run the following commands in the repo directory, and replace the command `discord_pfp_banner_generator` of the usage section by `python3 discord_pfp_banner_generator`.
 
 ## Usage
 
