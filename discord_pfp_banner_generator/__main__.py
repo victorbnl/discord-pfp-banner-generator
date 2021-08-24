@@ -12,7 +12,6 @@ from PIL import Image
 
 from .process import process
 
-
 def cli():
     """Discord profiles picture & banner generator cli"""
 
