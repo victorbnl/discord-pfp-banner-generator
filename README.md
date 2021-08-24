@@ -1,6 +1,8 @@
 # Discord profile picture & banner generator
 
-A script to generate a profile picture and a banner that show the same image on Discord
+<strong><img src=".readme/warning.svg" height="42px" alt="⚠ Setting a banner requires nitro"></strong>
+
+A script to generate a profile picture and a banner that show the same image on Discord.
 
 <p align="center">
     <img src=".readme/screenshot.png">
@@ -8,15 +10,19 @@ A script to generate a profile picture and a banner that show the same image on 
 
 ## Installation
 
+### With pip (*recommended*)
+
 ```
 pip install --upgrade git+https://github.com/victorbnl/discord-pfp-banner-generator.git
 ```
 
 And make sure your python scripts directory is in your path (pip should warn you if it's not anyway).
 
-## Usage
+### Without pip
 
-<strong><img src=".readme/warning.svg" height="42px" alt="⚠ Setting a banner requires nitro"></strong>
+Clone this repo, run the following commands in the repo directory, and replace the command `discord_pfp_banner_generator` of the usage section by `python3 discord_pfp_banner_generator`
+
+## Usage
 
 ### Cli
 
