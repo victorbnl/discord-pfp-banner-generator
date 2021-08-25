@@ -19,6 +19,7 @@ setup(
     },
     install_requires=[
         'pillow',
-        'requests'
+        'requests',
+        'PyYAML'
     ]
 )

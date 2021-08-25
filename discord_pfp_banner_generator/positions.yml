@@ -1,0 +1,13 @@
+output:
+  w: 600
+  h: 205
+
+banner:
+  w: 600
+  h: 120
+
+profile-picture:
+  x: 45
+  y: 45
+  w: 160
+  h: 160

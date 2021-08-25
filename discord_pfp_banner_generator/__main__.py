@@ -9,8 +9,8 @@ from sys import argv, exit
 
 import requests
 from PIL import Image
+from process import process
 
-from .process import process
 
 def cli():
     """Discord profiles picture & banner generator cli"""
@@ -22,6 +22,7 @@ def cli():
 
     # Load the image
     arg = argv[1]
+    # If it's a link
     if re.match(r'(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?', arg):
         fp = tempfile.TemporaryFile()
         fp.write(requests.get(arg).content)
@@ -29,7 +30,7 @@ def cli():
     else:
         image = Image.open(arg)
     
-    # Create the banner and the pp
+    # Create the banner and the profile picture
     banner, pfp = process(image)
 
     # Save files
