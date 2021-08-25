@@ -2,7 +2,6 @@
 #-*- coding: utf-8 -*-
 
 from distutils.core import setup
-import os
 
 setup(
     name='discord-pfp-banner-generator',
