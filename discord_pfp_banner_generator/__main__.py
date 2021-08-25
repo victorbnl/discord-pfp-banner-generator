@@ -9,7 +9,7 @@ from sys import argv, exit
 
 import requests
 from PIL import Image
-from process import process
+from .process import process
 
 
 def cli():
