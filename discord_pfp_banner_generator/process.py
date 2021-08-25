@@ -8,7 +8,7 @@ import yaml
 from PIL.Image import ANTIALIAS
 
 # Get the positions
-with open(os.path.join(sys.path[0], "positions.yml"), "r") as f:
+with open(os.path.join(os.path.dirname(__file__), "positions.yml"), "r") as f:
     positions = yaml.safe_load(f.read())
 
 def process(image):
