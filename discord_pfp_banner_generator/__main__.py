@@ -3,25 +3,27 @@
 
 """Discord profiles picture & banner generator cli"""
 
+import os
 import re
+import sys
 import tempfile
-from sys import argv, exit
+
+sys.path.append(os.path.dirname(__file__))
 
 import requests
 from PIL import Image
-from .process import process
-
+from process import process
 
 def cli():
     """Discord profiles picture & banner generator cli"""
 
     # If there are no args
-    if len(argv) < 2:
+    if len(sys.argv) < 2:
         print("Please specify an image")
-        exit(1)
+        sys.exit(1)
 
     # Load the image
-    arg = argv[1]
+    arg = sys.argv[1]
     # If it's a link
     if re.match(r'(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?', arg):
         fp = tempfile.TemporaryFile()
