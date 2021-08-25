@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 
 from distutils.core import setup
+import os
 
 setup(
     name='discord-pfp-banner-generator',
@@ -17,6 +18,10 @@ setup(
             'discord_pfp_banner_generator = discord_pfp_banner_generator.__main__:cli'
         ]
     },
+    include_package_data=True,
+    data_files=[
+        "discord_pfp_banner_generator/positions.yml"
+    ],
     install_requires=[
         'pillow',
         'requests',
