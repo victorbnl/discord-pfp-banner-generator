@@ -46,4 +46,4 @@ pfp.save("pfp.png", "PNG")
 
 ## Footnotes
 
-1. <span id="footnotes-1"></span>To get your python script path, run `python -c "print(__import__('sysconfig').get_path('scripts', __import__('os').name+'_user'))"`
+1. <span id="footnotes-1"></span>To get your python script paths, run `python3 -c "print(__import__('sysconfig').get_path('scripts', __import__('os').name+'_user'))"` (replace `python3` by `py` on Windows)
