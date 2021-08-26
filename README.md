@@ -16,7 +16,7 @@ A script to generate a profile picture and a banner that show the same image on 
 pip install --upgrade git+https://github.com/victorbnl/discord-pfp-banner-generator.git
 ```
 
-And make sure your python scripts directory is in your path (pip should warn you if it's not anyway).
+And make sure your python scripts directory<sup>[<a href="#footnotes-1">1</a>]</sup> is in your path (pip should warn you if it's not anyway).
 
 ### Without pip
 
@@ -43,3 +43,7 @@ banner, pfp = discord_pfp_banner_generator.process(im)
 banner.save("banner.png", "PNG")
 pfp.save("pfp.png", "PNG")
 ```
+
+## Footnotes
+
+1. <span id="footnotes-1"></span>To get your python script path, run `python -c "print(__import__('sysconfig').get_path('scripts', __import__('os').name+'_user'))"`
