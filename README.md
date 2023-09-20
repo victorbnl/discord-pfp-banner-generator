@@ -8,6 +8,10 @@ A script to generate a profile picture and a banner that show the same image on 
     <img src=".readme/screenshot.png">
 </p>
 
+## Discontinued
+
+As Discord modified their interface, the project doesn’t work anymore. Plus, reproducing its behaviour for current versions would require different configurations for different places − i.e. profile popup, profile page, those on mobile devices… Therefore, the project is now deprecated.
+
 ## Installation / Update
 
 ### With pip *(recommended)*
